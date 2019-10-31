@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>全选练习2</title>
+    <style>
+        form {
+            text-align: center;
+            border: 1px solid red;
+            width: 500px;
+            height: 100px;
+            margin: 50px auto;
+            padding: 20px;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var checkedAllBtn=document.getElementById("checkedAllBtn");
+            var items=document.getElementsByName("items");
+            checkedAllBtn.onclick=function(){
+                for(i=0; i<items.length;i++){
+                    items[i].checked=true;
+                }
+                checkedAllBox.checked=true;
+            }//全选
+
+            var checkedNoBtn=document.getElementById("checkedNoBtn");
+            checkedNoBtn.onclick=function(){
+                for(i=0; i<items.length;i++){
+                    items[i].checked=false;
+                }
+                checkedAllBox.checked=false;
+            }//全不选
+
+            var checkedRevBtn=document.getElementById("checkedRevBtn");
+            checkedRevBtn.onclick=function(){
+                checkedAllBox.checked=true;
+                for(i=0; i<items.length;i++){
+                    // if(items[i].checked){
+                    //     items[i].checked=false;
+                    // }else{
+                    //     items[i].checked=true;
+                    // }//反选方法一
+
+                    items[i].checked=!items[i].checked //反选方法二
+                }
+
+                for(i=0;i<items.length;i++){
+                        if(!items[i].checked){
+                            checkedAllBox.checked=false;
+                        }
+                    } 
+            }//反选
+
+            var sendBtn=document.getElementById("sendBtn");
+            sendBtn.onclick=function(){
+                for(i=0; i<items.length;i++){
+                    if(items[i].checked){
+                        alert(items[i].value);
+                    }
+                }
+            }//提交
+
+            var checkedAllBox=document.getElementById("checkedAllBox");
+            checkedAllBox.onclick=function(){
+                for(i=0; i<items.length;i++){
+                   items[i].checked=checkedAllBox.checked;
+                }
+            }//全选
+
+            for(i=0;i<items.length;i++){
+                items[i].onclick=function(){
+                    // alert("anzhm");
+                    checkedAllBox.checked=true;
+                    for(j=0;j<items.length;j++){
+                        if(!items[j].checked){
+                            checkedAllBox.checked=false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+        }
+    
+    </script>
+</head>
+
+<body>
+    <form method="post" action="">
+        你爱好的运动是？<input type="checkbox" id="checkedAllBox">全选/全部选
+        <br>
+        <input type="checkbox" name="items" value="足球">足球
+        <input type="checkbox" name="items" value="篮球">篮球
+        <input type="checkbox" name="items" value="羽毛球">羽毛球
+        <input type="checkbox" name="items" value="乒乓球">乒乓球
+        <br>
+        <input type="button" id="checkedAllBtn" value="全  选">
+        <input type="button" id="checkedNoBtn" value="全不选">
+        <input type="button" id="checkedRevBtn" value="反  选">
+        <input type="button" id="sendBtn" value="提  交">
+    </form>
+</body>
+
+</html>

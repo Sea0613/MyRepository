@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表单</title>
+</head>
+
+<body>
+    <!-- 
+
+        使用form标签创建一个表单
+            form标签必须指定一个action属性，该属性指向的是一个服务器的地址，
+            当我们提交表单时将会提交到action属性对应的地址
+
+            使用form创建的仅仅是一个空白的表单
+                还需要向form中添加不同的表单项
+
+            使用input来创建一个文本框，它的type属性是text,如果希望表单项中的数据提交到服务器中，
+            还需要给表单项指定一个name属性，name表示提交内容的名字
+
+            用户填写的信息会附在url地址的后边以查询字符串的形式发送给服务器
+            url地址？查询字符串
+                格式：
+                    属性名=属性值&属性名=属性值&属性名=属性值
+            
+            提交按钮可以将表单中的信息提交给服务器
+            使用input创建一个提交按钮，它的type属性值为 submit
+            再提交按钮中可以通过 value 属性来指定按钮上的文字
+
+            在文本框中也可以指定value属性值，该值将会作为文本框的默认值显示
+
+
+            使用input创建一个密码框，它的type属性值为password
+
+
+
+        如多希望在单选按钮或者多选框中指定默认选项
+            则可以希望选中的那项中添加checked="checked"属性
+
+            单选按钮
+                使用input来创建一个单选按钮，它的type属性值为 radio
+                单选按钮通过name属性进行分组，name属性相同是一组按钮
+
+            多选框
+                使用input创建一个多少选框，它的type属性值为 checbox
+
+            下拉表单
+                使用select来创建一个下拉表单
+                下拉列表的name属性需要指定给select，而value属性值需要指定给option
+                当为select添加一个multiple=“multiple”，则下拉列表变为一个多选的下拉列表
+                在select中可以使用optgroup对选项进行分组
+                    同一个optgroup中的选项是一组
+                可以通过lable属性来指定分组的名字
+                
+
+
+      -->
+
+
+    <form action="target.html">
+        用户名<input type="text" name="username"><br><br>
+        密 码<input type="password" name=""><br> <br>
+        <!-- 用户名<input type="text" name="user"> -->
+        <input type="submit" value="亲，好了哦！"><br><br><br>
+
+
+        性别<input type="radio" name="gender" value="1">男
+        性别<input type="radio" name="gender" value="1">女<br><br> <!--  当name属性不同时，可以多选  -->
+        <input type="submit" value="正好呢"><br><br><br>
+
+        性别<input type="radio" name="gender" >男
+        性别<input type="radio" name="gender"  checked="checked">女<br><br> <!--  当name属性不同时，可以多选  -->
+        <input type="submit" value="正好呢"><br><br><br>
+
+
+        爱好 <input type="checkbox" name="hobby" value="lq">篮球
+        <input type="checkbox" name="hobby" value="zq">足球
+        <input type="checkbox" name="hobby" value="ymq">羽毛球
+        <input type="checkbox" name="hobby" value="zzq">桌球
+        <input type="checkbox" name="hobby" value="bbq">乒乓球<br><br>
+        <input type="submit" value="好了"><br><br>
+
+
+        <select name="123" id="">
+
+            <optgroup label="双">
+
+                <option value="223">北京</option>
+                <option value="2233">上海</option>
+                <option value="22333">深圳</option>
+                <option value="223333">广州</option>
+                <option value="2233333" selected="selected">丽江</option>
+            </optgroup>
+            <optgroup label="单">
+                <option value="223">北</option>
+                <option value="2233">上</option>
+                <option value="22333">深</option>
+                <option value="223333">广</option>
+                <option value="2233333" selected="selected">丽江</option>
+            </optgroup>
+
+
+
+        </select>
+
+
+
+    </form>
+</body>
+
+</html>

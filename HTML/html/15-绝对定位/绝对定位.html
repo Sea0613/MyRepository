@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: aquamarine;
+        }
+
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+            /* position: relative;
+        left: 200px;
+        top: 200px; */
+            position: absolute;
+            left: 200px;
+
+            /*
+            当position的属性值为absolute时，元素则开启了绝对定位
+            
+            绝对定位：
+                1，开启绝对定位时，会使元素脱离文档流
+                2，开启绝对定位以后，如果不设置偏移量，则元素的位置不会发生变化
+                3，绝对定位是相对于离他最近的开启了定位（无论是什么定位）的祖先元素进行定位的
+                （一般开启了子元素的 绝对定位 以后都会 同时 开启父元素的  相对定位）
+                   如果所有的祖先元素都没有开启定位，则会相当于浏览器的窗口进行定位
+                4，绝对定位会使元素提升一个层级
+                5，绝对定位会改变元素的性质，内联元素会变成块元素，块元素的宽度和高度默认都被内容撑开
+        
+        
+        
+        
+        
+        
+        */
+        }
+
+        .box3 {
+            width: 300px;
+            height: 300px;
+            background-color: yellowgreen;
+            /* position: relative; */
+        }
+        .box4{
+            width: 300px;
+            height: 300px;
+            background-color: orange;
+            position: relative;
+        }
+
+        span {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box4">
+        <div class="box2"></div>
+    </div>
+    <div class="box3"></div>
+    <span>我是内联元素</span>
+</body>
+
+</html>

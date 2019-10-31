@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>自定义对象</title>
+    <script>
+    /**
+        自定义对象：
+            由开发人员自己创建的对象
+    **/
+    
+    // 创建对象
+
+    /*
+     *  使用new关键字调用的函数，是构造函数constructor
+     *   构造函数是专门用来创建对象的函数
+     *  使用typeof检查一个对象时，会返回object
+
+
+        在对象中保存的值称为属性
+        向对象添加属性
+            语法：对象.属性名=属性值;
+        
+        读取对象中的属性
+            语法：对象.属性名
+
+        如果读取对象中没有的属性，不会报错，而是会返回undefined
+
+        修改对象的属性值
+            语法：对象.属性名=新值
+
+        删除对象的属性
+            语法:delete obj.name;
+     *
+     */
+    var obb = new Object();
+    console.log(obb);
+    console.log(typeof obb);
+
+    var obj = new Object();
+    obj.name="孙悟空";//向obj中添加一个name属性
+    obj.gender="男";//向obj中添加一个gender属性
+    obj.age=18;//向obj中添加一个age属性
+    console.log("1"+obj);
+    console.log(typeof obj);
+
+
+    var obj = new Object();
+    obj.name="孙悟空";
+    obj.gender="男";
+    obj.age=18;
+    console.log("2"+obj.name);//读取对象中的name属性
+    console.log(typeof obj);
+
+
+    var obj = new Object();
+    obj.name="孙悟空";
+    obj.gender="男";
+    obj.name="Tom";//修改对象的属性值
+    obj.age=18;
+    console.log("3"+obj.name);//读取对象中的name属性
+    console.log(typeof obj);
+
+    var obj = new Object();
+    obj.name="孙悟空";
+    obj.gender="男";
+    obj.age=18;
+    delete obj.name;
+    console.log("4"+obj.name);//读取对象中的name属性
+    console.log(typeof obj);
+
+
+
+
+
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

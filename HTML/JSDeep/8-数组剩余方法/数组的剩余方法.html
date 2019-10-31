@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的剩余方法</title>
+    <script>
+        /*
+          reverse()
+            - 该方法用来反转数组(前边的去后那边，后边的去前边)
+              该方法会直接修改原数组
+
+          sort()
+            -  可以用来对数组中的元素进行排序
+            -  该方法会对原数组产生影响，默认会按照Unicode编码进行排序
+            -  即使对于纯数字的数组，使用sort()排序时，也会按照Unicode编码来排序，
+               所以对数字进行排序时，可能会得到错误的结果
+            -  我们可以自己来指定排序的规则，我们可以在sort()中添加一个回调函数，并指定排序规则。
+               回调函数中需要定义两个形参，浏览器将会分别使用数组中的元素作为实参去调用回调函数。 
+            -  使用哪个元素调用不确定，但是肯定的是在数组中a一定在b的前面、
+
+            -  浏览器会根据回调函数的返回值来决定元素的顺序，
+               如果返回一个大于0的值，则元素会交换位置，
+               如果返回一个小于0的值，则元素位置不变，
+               如果返回一个0，则认为两个元素相等，也不交换位置
+               
+            -  如果需要升序排列，则返回a-b
+            -  如果需要降序排列，则返回b-a
+        
+        
+        */
+
+        arr=["swk","zbj", "shs","ts"];
+        console.log(arr);
+        arr.reverse();
+        console.log(arr);//ts,shs,zbj,swk
+
+
+        arr2=[3,5,4,7,8,6,2,1];
+        arr2.sort();
+        console.log(arr2);//1,2,3,4,5,6,7,8
+
+        arr3=[3,5,4,7,8,6,2,1];
+        console.log(arr3);
+        arr3.sort(function(a,b){
+            // //前边的大
+            // if(a>b){
+            //     return 1;
+            // //后面的大
+            // }else if(a<b){
+            //     return -1;
+            // //前后相等
+            // }else{
+            //     return 0;
+            // }
+
+            // return a-b;
+            return b-a;
+        });
+        console.log(arr3);//降序排列8,7,6,5,4,3,2,1
+
+
+
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>字体样式</title>
+
+    <style type="text/css">
+        .p1 {
+            /* 
+        -使用color来设置字体的颜色
+
+        -设置字体的大小，使用font-sise设置字体的大小，浏览器默认的
+         文字大小都是16px
+        -font-sise设置的并不是文字本身的大小
+             在页面中，每个字都处在一个看不见的格子中
+             font-sise实际是设置格子的大小，并不是字体的大小
+             一般情况下文字都要比格子小一些，也有时会比格子大
+             根据字体的不同，显示效果也不同
+         */
+            color: red;
+            font-size: 30px;
+
+            /* 
+          通过font-family来指定文字的字体
+          该样式可以指定多个字体使用逗号分开
+          当采用多个字体时，优先采用前面的字体，没有的话尝试下一个，循环
+          */
+            font-family: 黑体;
+
+            /* 
+          使用font-style来设置文字的斜体
+          */
+            font-style: inherit;
+
+            /* 
+          使用font-weight来设置字体的加粗,范围是100~900之间的9个值
+          但是因为用户中没有这么多个级别，所以达不到九个不同的级别
+          */
+            font-weight: 300;
+        }
+
+        /* 
+          在CSS中可通过  font  来同时设置字体的所有相关样式
+          可将字体的样式的值，统一写在font样式中，不同的值用空格隔开
+
+          使用font设置字体样式时，没有顺序要求 但是字体大小，字体样式必须写。字体样式必须写在最后
+           */
+        .p2 {
+            font: initial small-caps bold 80px "黑体";
+            color: aquamarine;
+            font-size: 80px;
+            font-family: 黑体;
+        }
+    </style>
+</head>
+
+<body>
+    <p class="p1">
+        生活不止眼前的苟且，还有事诗与远方
+    </p>
+    <p class="p2">
+        生活不止眼前的苟且，还有事诗与远方ABCDabcd
+    </p>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DOM查询</title>
+    <script>
+    /**
+        获取元素节点的子节点
+            通过具体的元素节点调用
+                1，getElmentsByTagName()方法
+                            - 返回当前子节点的指定标签名后代节点，
+                            即不再使用document，而是使用其他的对象，
+                            例如元素的id。 city.getElmentsByTagName()
+
+                2，childNodes属性
+                            - 表示当前节点的所有子节点
+                            该属性会获取包括文本节点在内的所有子节点。
+                            根据DOM标签标签间的空白也会当成文本节点
+                            注意：但是IE8及以下的浏览器不会将空白当成子节点
+
+                3，firstChild属性
+                            - 表示当前节点的第一个子节点
+                            该属性也包括空白文本
+
+                4，lastChild属性
+                            - 表示当前节点的最后一个子节点
+
+
+
+        children属性：可以获取当前元素的所有子元素。例如：city.children
+
+        firstElementChild属性：可以获取当前元素的第一个子元素，
+        该属性不支持IE8及以下的浏览器，如果需要兼容，尽量不要使用
+
+        
+
+    
+    **/
+    
+    
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>解决高度塌陷</title>
+</head>
+<style>
+    .box {
+        border: 10px red solid;
+        /* 
+            根据W3C的标准，在页面中元素都有一个隐含的属性叫Block Formatting Context
+            简称BFC，该属性可以设置打开或关闭，默认是关闭的。
+
+        当开启BFC以后，元素将会有以下特性：
+         1，父元素的垂直外边距不会和子元素重叠
+         2，开启BFC的元素不会被浮动元素所覆盖
+         3，开启BFC的元素可以包含浮动的子元素
+
+         如何开启元素的BFC
+         1，设置元素浮动
+                    -使用这种方式开启，可以撑开父元素，
+                    但是会使父元素丢失宽度，而且也会导致下边的元素上移，不能解决问题
+         2，设置元素绝对定位
+         3，设置元素为inline-block
+                    -这种方法可以解决问题，但会导致宽度丢失，不推荐使用
+         4，将元素的overflow设置为一个非visible的值
+            推荐方式：将overflow设置为hidden是副作用最小的开启BFC方式。 
+
+            IE6及以下的浏览器不支持BFC，所以以上方式不兼容IE6    
+        */
+        overflow: hidden;
+    }
+
+    .box1 {
+        width: 200px;
+        height: 200px;
+        background-color: gold;
+        float: left;
+    }
+    .box2{
+        height: 200px;
+        background-color: greenyellow;
+    }
+</style>
+
+<body>
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+    <div class="box2"></div>
+</body>
+
+</html>

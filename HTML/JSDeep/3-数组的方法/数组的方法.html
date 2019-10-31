@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的方法</title>
+    <script>
+        /**
+            方法一：push()
+                - 该方法可以向数组的末尾添加一个或者多个元素，并返回数组的新的长度。
+                - 可以将 要添加的元素 作为方法的 参数传递，这样这些元素将会自动添加到 数组的末尾
+                - 该方法会将 数组新的长度 作为返回值返回
+        
+            方法二：pop() 
+                - 该方法可以删除数组的最后一个元素,并将删除的元素作为返回值返回
+    
+            方法三：unshift()
+                - 该方法可以向数组开头添加一个或多个元素，并返回新的数组的长度
+                - 向前面插入元素以后，其他的元素索引会依次调整
+    
+            方法四：shift()
+                - 可以删除数组的第一个元素，并将被删除的元素作为返回值返回
+                
+            方法五：concat()
+                - 该方法可以连接两个或多个数组，也可以将元素以实参的方式直接传递进去。并将新的数组返回
+                ---该方法不会对原数组产生影响
+
+            方法六：join()
+                - 该方法可以将数组转换为一个字符串
+                - 该方法不会对原数组产生影响，而是将转换后的字符串作为结果返回
+                - 在join()中可以指定一个字符串作为参数，这个字符串将会成为数组中元素的连接符
+                  如果不指定连接符，则默认使用逗号（,）作为连接符。
+        **/
+        // push()
+        var arr = ["孙悟空", "蜘蛛精", "沙和尚"];
+        var result = arr.push("唐僧", "玉兔精", "猪八戒");
+        console.log(arr);
+        console.log(arr.length);
+        console.log("result =" + result);//6
+
+        // pop() 
+        var arr2 = ["孙悟空", "蜘蛛精", "沙和尚", "唐僧", "玉兔精", "猪八戒"];
+        result = arr2.pop();
+        console.log(arr2);
+        console.log(arr2.length);//5
+        console.log("result=" + result);//猪八戒
+
+        // unshift()
+        var arr3 = ["孙悟空", "蜘蛛精", "沙和尚", "唐僧", "玉兔精", "猪八戒"];
+        result = arr3.unshift("zhm", "fsn");
+        console.log(arr3);
+        console.log(arr3.length);//8
+
+        // shift()
+        var arr4 = ["孙悟空", "蜘蛛精", "沙和尚", "唐僧", "玉兔精", "猪八戒", "zhm", "fsn"];
+        result = arr4.shift();
+        console.log(arr4);
+        console.log(arr4.length);
+        console.log("result=" + result);//孙悟空
+
+        // concat()
+        var arr5 = ["孙悟空", "蜘蛛精", "沙和尚"];
+        var arr6 = ["唐僧", "玉兔精", "猪八戒"];
+        var arr7 = ["zhm", "fsn"];
+        result = arr5.concat(arr6,arr7,"xxx","zzz");
+        console.log(arr7);
+        console.log(result);//"孙悟空", "蜘蛛精", "沙和尚", "唐僧", "玉兔精", "猪八戒", "zhm", "fsn", "xxx", "zzz"
+
+        // join()
+        result=arr7.join("@@@");
+        console.log(typeof arr7);
+        console.log(typeof result);
+        console.log("result="+result);//zhm@@@fsn
+
+
+    </script>
+
+</head>
+
+<body>
+
+</body>
+
+</html>

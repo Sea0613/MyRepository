@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if练习2</title>
+    <script>
+        /**
+         * 高180cm以上，富1000万以上，帅500以上
+         * 如果同时满足这三个条件，则：“一定嫁给他”，
+         * 如果三个条件有为真的情况，则“勉强嫁了吧”，
+         * 如果三个条件都不满足，则“不嫁”
+         * **/
+
+        var score = prompt("请输入：高");
+        score1 = prompt("请输入：富");
+        score2 = prompt("请输入：帅");
+        if (score > 180 && score1 > 1000 && score2 > 500) {
+            alert("一定嫁给他");
+        }else if(score>180||score1 > 1000|| score2 > 500){
+            alert("勉强嫁了吧");
+        }else{
+            alert("不嫁了");
+        }
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

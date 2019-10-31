@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>danwei</title>
+    <style type="text/css">
+    /* 
+       长度单位
+          像素px
+          不同的显示器一个像素的大小也不同
+          显示效果好越清晰，像素越小，反之越大
+
+          百分比 %
+            -也可以将一个单位设置为一个百分比的形式
+             这样浏览器将会根据其父元素的样式来计算该值
+            -使用百分比的好处是，当父元素的属性值发生变化时，子元素也会按照比例发生改变
+             在我们创建一个自适应页面是经常使用百分比作为单位
+
+          em
+            -em和百分比类似，它是相对于当前元素的字体大小来计算的
+            -1em=1font-sise
+            -使用em时，当字体大小发生改变时，em也会随之改变
+            -当设置字体相关样式时常用em  
+     */
+        .box{
+            width: 300px;
+            height: 300px;
+            background-color: yellowgreen;
+
+        }
+        .box1{
+            width: 50%;
+            height: 50%;
+            background-color: yellow;
+        }
+        .box2{
+            width: 300px;
+            height: 300px;
+            background-color: yellowgreen;
+
+        }
+        .box3{
+            font-size: 50px;
+            width: 3em;
+            height: 3em;
+            background-color: yellow;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"> 
+
+        </div>
+    </div><br><br>
+    <div class="box2">
+        <div class="box3"> 
+
+        </div>
+    </div>
+</body>
+</html>

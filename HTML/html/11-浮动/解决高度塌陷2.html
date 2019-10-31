@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+    <style>
+        .box1{
+           border: 2px solid red;
+        }
+        .box2{
+            width: 200px;
+            height: 200px;
+            background-color: greenyellow;
+            float: left;
+        }
+
+        /* 
+            解决高度塌陷方案二：
+                可以直接在高度塌陷的父元素的最后，添加一个空白的div，
+                由于这个div并没有浮动，这样可以通过这个空白的div来撑开父元素的高度
+                基本没有副作用
+
+                使用这种方式虽然可以解决问题，但是会在页面中添加多余的结构
+        */
+        .clear{
+            clear: both;
+        }
+    
+    </style>
+<body>
+    <div class="box1">
+            <div class="box2"></div>
+            <div class="clear"></div>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font: 18px/1 宋体;
+}
+.outer{
+    width: 500px;
+    /* height: 800px;
+    background-color: whitesmoke; */
+    margin: 50px auto;
+    
+}
+.title h3{
+    height: 50px;
+    background-color: antiquewhite;
+    line-height: 50px;
+    padding-left: 45px;
+    padding-right: 40px;
+    border-top: 5px green solid;
+}
+.title h3 a{
+    float: right;   
+}
+a{
+    text-decoration: none;
+}
+.title h3 span{
+    font-size: 25  px;
+}
+.content{
+    border: 2px solid skyblue;
+    padding-left: 50px;
+    padding-right: 55px;
+}
+.content h3{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.nav{
+    border-bottom: 2px dashed skyblue;
+}
+ul{
+    list-style: none;
+}
+li{
+    margin-bottom: 22px;
+}
+.red{
+    color: red;
+}
+#red{
+    color: red;
+}
+.a2{
+    float: right;
+}
+.nav2{
+    margin-top: 25px;
+    border-bottom: 2px dashed skyblue;
+}
+a:hover{
+    color: green;
+}
+
+    
+    

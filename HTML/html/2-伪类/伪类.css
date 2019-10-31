@@ -1,0 +1,42 @@
+/*
+ p{
+    background-color: aqua;
+}
+*/
+p{
+    background-color: darkseagreen;
+}
+p.dnh{
+    background-color: aquamarine;
+}
+p:first-child{
+    background-color: red;
+}
+p:nth-child(6){
+    background-color: chartreuse;
+}
+p:nth-child(even){
+    font-size: 20px;
+}
+p:nth-child(odd){
+    font-size: 30px;
+}
+p:not(.dnh){
+   background-color: darkcyan;
+}
+
+p:last-child{
+    font-size: 60px;
+}
+p[title=xx]{
+    background-color: red;
+}
+p[title^=x]{
+    background-color: yellow;
+}
+p[title$=l]{
+    background-color: green;
+}
+p[title*=x]{
+    background-color: skyblue;
+}

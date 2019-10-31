@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片循环</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #ouder {
+            width: 800px;
+            height: 900px;
+            margin: 10px auto;
+            padding: 30px;
+            background-color: greenyellow;
+            text-align: center;
+        }
+
+        #imgName {
+            width: 800px;
+            line-height: 900px;
+        }
+
+        button {
+            width: 100px;
+            padding: 10px;
+            margin: 10px;
+        }
+        p{
+            margin-bottom: 10px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var prev = document.getElementById("prev");
+            var next = document.getElementById("next");
+            var imgName = document.getElementById("imgName");
+            var imgArr = ["img/1.jpg", "img/2.jpg", "img/3.jpg", "img/4.jpg", "img/5.jpg"];
+            var index = 0;
+            var info = document.getElementById("info");
+            info.innerHTML = "一共有" + imgArr.length + "张图片，当前第" + (index+1) + "张";
+
+            prev.onclick = function () {
+                index--;
+                if (index < 0) {
+                    index = imgArr.length-1;
+                }
+                imgName.src = imgArr[index];
+                info.innerHTML = "一共有" +imgArr.length + "张图片，当前第" + (index+1) + "张";
+            };
+            next.onclick = function () {
+                index++;
+                if (index > imgArr.length-1) {
+                    index = 0;
+                }
+                imgName.src = imgArr[index];
+                info.innerHTML = "一共有" + imgArr.length + "张图片，当前第" + (index+1) + "张";
+            };
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="ouder">
+        <p id="info"></p>
+        <img src="img/1.jpg" alt="" id="imgName">
+        <button id="prev">上一张</button>
+        <button id="next">下一张</button>
+    </div>
+</body>
+
+</html>

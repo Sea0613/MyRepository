@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>检查正则是否符合手机号码</title>
+    <script>
+    /**
+        手机号码规则：
+            1  3  567890123(11位)
+
+            1，以1开头
+            2，第二位3-9任意数字
+            3，三位以后任意数字9个
+            ^1 [3-9] [0-9]{9}$
+
+    **/
+
+    var phoneReg=/^1[3-9][0-9]{9}$/;
+    var phonestr="18296757979";
+    console.log(phoneReg.test(phonestr));//true
+    console.log(phoneReg.test("11096757979"));//false
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /**
+        通过关系运算符可以比较两个值之间的大小关系
+            如果关系成立会返回true，如果关系不成立则会返回false
+    
+            >  大于号
+            -判断符号左侧的值是否大于右侧
+            -如果关系成立则返回true，如果不成立则返回false
+    
+            >= 大于等于
+            -判断符号左侧的值是否大于等于右侧的值
+    
+            < 小于
+            -同上
+            <= 小于等于
+            —同上
+    
+            非数值的情况：
+                对于非数值和进行比较时，它会将其先转换为数值，然后再比较
+                如果符号两侧的值都是字符串时，不会将其转换成数字进行比较，而是分别比较字符串中字符的Unicode编码
+
+
+            比较字符编码时是一位一位进行比较的，如果符号前后两边字符的第一位一样，则比较下一位，
+            所以可以借用它来对英文进行排序
+
+            如果比较的两个字符串类型的数字，可能会得到不可预期的结果，所以注意再比较两个字符串类型的数字时，一定要转型，
+            即在其中一个字符串的前面加上一个+ 进行转型(一元运算符+"a"  会将a转换为Number类型)       
+        **/
+
+        var result = 5 > 10;//false
+        console.log("result=" + result);
+        var result = 5 < 10;//true
+        console.log("result1=" + result);
+        var result = 5 <= 10;//true
+        console.log("result2=" + result);
+
+
+        var result = 1 > true;//false
+        console.log("result3=" + result);
+        var result = 1 >= true;//true
+        console.log("result4=" + result);
+        var result = 1 > "0";//先将"0"转换为number为0,即值为true
+        console.log("result5=" + result);
+        var result = 1 > null;//先将null转换为number为0，即值为true
+        console.log("result6=" + result);
+
+        var result = 10 > "hello";//先将hello转换为number为NaN，即值为false
+        console.log("result7=" + result);
+
+        var result = true > false;//先转换为number,即值为true
+        console.log("result8=" + result);
+
+        //比较两个字符串时，比较的是字符串的字符编码
+        var result = "1" > "5";//false
+        console.log("result9=" + result);
+
+        var result = "11" > "5";//false
+        console.log("result10=" + result);
+
+        var result = "a" > "b";//false
+        console.log("result11=" + result);
+
+        var result = "a" < "b";//true
+        console.log("result12=" + result);
+     
+        var result = "abc" < "b";//true
+        console.log("result13=" + result);
+
+
+         /*比较字符编码时是一位一位进行比较的，如果符号前后两边字符的第一位一样，则比较下一位，
+        所以可以借用它来对英文进行排序*/
+        var result = "abc" < "bcd";//true
+        console.log("result14=" + result);
+
+
+        //如果比较的两个字符串类型的数字，可能会得到不可预期的结果，所以注意再比较两个字符串类型的数字是，一定要转型
+        var result = "32141414111" < "5";//true
+        console.log("result15=" + result);
+
+        var result = "32141414111" < +"5";//false
+        console.log("result16=" + result);
+        
+
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

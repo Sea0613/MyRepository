@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数返回值的类型</title>
+    <script>
+    /**
+    
+    
+    **/
+
+    function fun(){
+        alert("函数要执行了");
+        for(var i=0; i<5; i++){
+            if(i==2){
+            // break; //使用break可以退出当前循环
+            // continue; //使用continue用于跳过档次循环
+            // return; //使用return可以结束整个函数
+
+            }
+            console.log(i);
+        }
+        alert("函数执行完了");
+    }
+    // fun();
+
+
+
+    /* 返回值可以是任意的数据类型， 可以是一个对象，也可以是一个函数 */
+    function fun2(){
+        return {name:"zhm"};//返回一个对象
+    }
+    var a = fun2();
+    // console.log("a="+a.name);
+
+    function fun3(){
+        function fun4(){
+            alert("我是fun4");
+        }
+        //fun4(); //调用fun4
+        return fun4;
+        // return fun4();//undefined
+    }
+    // fun3();
+    a=fun3();
+    // console.log(a); //第一种写法
+    a(); //第二种写法,调用fun4
+    // fun3()(); //第三种写法，调用fun4
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

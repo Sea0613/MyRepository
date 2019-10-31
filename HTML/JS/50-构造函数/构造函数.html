@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    function Person(name,age,gender){
+        this.name=name;
+        this.age=age;
+        this.gender=gender;
+    }
+    Person.prototype.sayName=function(){
+        alert(this.name);
+    Person.prototype.a=123;
+    }
+    var per = new Person("马云",18,"男");
+    var per1 = new Person("马化腾",18,"男");
+    var per2 = new Person("雷军",18,"男");
+    per2.sayName();//雷军
+    console.log(per);//"马云",18,"男"
+    console.log(per1.a);//123
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

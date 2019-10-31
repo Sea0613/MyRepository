@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件的简介</title>
+    <!-- 
+        事件：就是文档或浏览器窗口中发生的一些特定的交互瞬间。比如：点击按钮，鼠标移动，关闭窗口。
+
+        我们可以在事件对应的属性中设置一些JS代码，这样当事件被触发时，这些代码将会执行
+    
+    -->
+</head>
+<body>
+    <!-- <button id="btn" onclick="alert('wazhm')">我是一个按钮</button> -->
+    <button id="btn">我是一个按钮</button>
+    <script>
+        var btn=document.getElementById("btn");
+        btn.onclick=function(){
+            alert("wafsna");
+        }
+    
+    </script>
+</body>
+</html>

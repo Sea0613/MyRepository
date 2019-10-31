@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习</title>
+    <style>
+        /* 
+            解决图片闪烁问题，可以将三张图片整合为一张，这样就可以同时加载三张图片，就不会出现需要加载三次图片而出现闪烁了
+            可通过background-position来切换显示图片的位置，这样的技术叫图片整合技术（CSS-Sprite）
+            优点;
+                1，将多个图片整合为一张图片里，浏览器只需要发送一次请求，可以同时加载多个图片，提高访问效率，提高了用户体验
+
+                2，将多个图片整合为一张图片，减小了图片的总大小，提高请求的速度，增加了用户体验
+        
+        
+        
+        */
+        .buttom a:link{
+            display: block;
+            width: 200px;
+            height: 161px;
+            background-color: aqua;
+            background-image: url(zh.jpg);
+            background-repeat: no-repeat;
+            margin: 300px auto;           
+        }
+        a:hover{
+            background-image: url(zh.jpg);
+            background-position: -200px 0; 
+        }
+        a:active{
+            background-image: url(zh.jpg);
+            background-position: -400px 0; 
+        }
+    </style>
+</head>
+<body>
+    <div class="buttom">
+        <a href=""></a>
+    </div>
+</body>
+</html>

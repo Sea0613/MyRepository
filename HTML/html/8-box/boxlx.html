@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 500px;
+            height: 250px;/* 第二种方法使小盒子在大盒子里往下移250px*  注意：这里将height从500px改成了250px/
+            background-color: greenyellow;
+            /* border: 1px solid;  第一种方法使里面的小盒子往下移250px，而大盒子不会往下移*/
+            padding-top: 250px;/* 第二种方法使小盒子在大盒子里往下移250px*/
+        }
+        .box1{
+            width: 250px;
+            height: 250px;
+            background-color: skyblue;
+            /* margin-top: 250px; 第一种方法使里面的小盒子往下移250px，而大盒子不会往下移*/
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box1"></div>
+    </div>
+</body>
+</html>

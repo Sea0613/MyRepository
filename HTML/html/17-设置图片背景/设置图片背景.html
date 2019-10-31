@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>图片背景</title>
+    <style>
+        /* 
+            使用background-image来设置背景图片
+            语法：background-image:url(相对路径);
+
+            如果背景图片大于元素，默认显示图片的左上角
+            如果背景图片和元素一样大，则会将背景图片全部显示
+            如果背景图片小于元素大小，则会默认将背景图片平铺以充满元素
+
+
+            可以同时为一个元素指定背景图片和背景颜色，这样背景颜色将会作为背景图片的底色
+            一般情况下设置背景图片时都会同时指定一个背景颜色
+
+
+            background-repeat用于设置背景图片的重复方式
+                可选值:repeat，默认值，背景图片会双方向重复（平铺）
+                      no-repeat，背景图片不会重复，有多大就显示多大
+                      repeat-x，背景图片延水平方向重复
+                      repeat-y，背景图片延垂直方向重复
+
+            背景图片默认是贴着元素的左上角显示
+                通过background-position可以调整背景图片在元素中位置
+                    可选值：
+                        该属性可以使用top right left bottom center中的两个值来指定背景图片的位置
+                        top left 左上
+                        bottom right 右下
+                        如果只给出一个值，则第二个值默认是center
+
+            也可以直接指定两个偏移量
+                第一个是水平方向偏移量
+                        -如果指定的是一个正值，则图片会向右移动指定的像素
+                        -如果指定的是一个负值，则图片会向左一定指定的像素
+                第二个是垂直方向偏移量
+                        -如果指定的是一个正值，则图片会向下移动指定的像素
+                        -如果指定的是一个负值，则图片会向上移动指定的像素
+            background-position:100px 100px; 
+
+
+
+            background-attachment用来指定背景图片是否随页面一起滚动
+                可选值：
+                    scroll，默认值，背景图片随着窗口滚动
+                    fixed，背景图片会固定在某一位置，不随页面滚动
+        
+            当背景图片的background-attachment设置为fixed时，背景图片的定位永远相对于浏览器的窗口
+            一般设置给body。
+
+            可以通过   background   -该属性可以同时设置所有背景相关的样式
+                                    -没有顺序要求，谁在前后都行
+                                    -也没有数量要求，不写的样式就使用默认值
+                                    
+        
+        
+        */
+        .box{
+            width: 1920px;
+            height: 1080px;
+            background-color: aquamarine;
+            margin: 0 auto;
+            background-image: url(1.jpg);
+        }
+        body{
+            width: 1080px;
+            height: 5000px;
+            /* background-image: url(4.jpg);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-attachment: fixed; */ 
+            background: url(4.jpg) no-repeat center center fixed;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+</body>
+</html>

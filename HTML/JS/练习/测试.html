@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>测试</title>
+    <script>
+        function fun(a, b) {
+            console.log("a=" + a);
+            console.log("b=" + b);
+            console.log(this.name);
+        }
+        var obj = {
+            name: "obj1",
+            sayName: function () {
+                console.log(this.name);
+            }
+        };
+        var obj2 = {
+            name: "obj2",
+            sayName: function () {
+                console.log(this.name);
+            }
+        };
+        var arr={
+            name:"arr"
+        }
+        fun(6, 6);
+        /**
+        用call()和apply()方法调用函数时，需要通过函数对象来调用。
+        因为这两个方法都是函数对象的方法，所以要通过函数对象才能调用
+
+        此时这个对象会成为函数执行时的this
+        **/
+
+        fun.call(obj2,8,8);
+        fun.apply(obj, [2, 3]);
+        obj.sayName.call(obj2);
+        fun.call(arr,9,9);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

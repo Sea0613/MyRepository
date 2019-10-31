@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>number</title>
+    <script>
+    /*
+        将其他数据类型转换为Number
+        
+        转换方式一：使用number()函数
+                字符串转换为数字：
+                    1，如果是纯数字的字符串，则直接将其转换为数字
+                    2，如果字符串中有非数字内容则转换为NAN
+                    3,如果字符串是一个空串或者是一个全是空格的字符串则转换为 0
+                
+                布尔转换为数字
+                    true转成 1
+                    false转成 0
+
+                null转成数字其结果为 0
+
+                undefined转成数字结果为 NaN
+
+        转换方式二：
+                这种方法专门用来对付字符串
+                parseInt() 把一个字符串转换为整数 “可以间接用来取整数”
+                    parseInt()可以将一个字符串中的有效的整数内容取出来，然后转换为Number
+
+                parseFloat() 把一个字符串转换为一个浮点数即小数
+                    parseFloat()作用和parseInt类似，不同的是他可以获得小数
+
+        如果对非String使用parseIn()或者parseFloat()时，它会先将其转换为String，然后再操作
+
+
+
+    */
+
+
+
+        var a = "123";
+
+        // a = true;
+        // a = false;
+
+        // a = NaN;
+
+        a = null;
+
+        a = undefined;
+        a = Number(a);
+        console.log(typeof a);
+        console.log(a);
+
+        var b = "256.356px";
+        // b = parseInt(b);
+        b = parseFloat(b);
+        console.log(typeof b);
+        console.log(b);
+
+        // 如果对非String使用parseIn()或者parseFloat()时，它会先将其转换为String，然后再操作
+        var c = "256";
+        c = parseInt(c);
+        console.log(typeof c);
+        console.log(c);
+        var d = null;
+        d = parseFloat(d);
+        console.log(typeof d);
+        console.log(d);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

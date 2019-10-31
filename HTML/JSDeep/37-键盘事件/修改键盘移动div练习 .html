@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>键盘移动div练习</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var sd = 10;
+            var dir = 0;
+            setInterval(function () {
+                dir === 37 && (box1.style.left = box1.offsetLeft - sd + "px");
+                dir === 39 && (box1.style.left = box1.offsetLeft + sd + "px");
+                dir === 38 && (box1.style.top = box1.offsetTop - sd + "px");
+                dir === 40 && (box1.style.top = box1.offsetTop + sd + "px");
+            }, 50);
+            var box1 = document.getElementById("box1");
+            document.onkeydown = function (event) {
+                event = event || window.event;
+                // console.log(event.keyCode);//上38，下40，左37，右39
+                // if(event.keyCode===37){
+                //     box1.style.left=box1.offsetLeft-10+"px";
+                // }
+                if (event.ctrlKey) {
+                    sd = 100;
+                } else {
+                    sd = 10;
+                };
+                dir = event.keyCode;
+            };
+            document.onkeyup = function () {
+                dir = null;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+</body>
+
+</html>

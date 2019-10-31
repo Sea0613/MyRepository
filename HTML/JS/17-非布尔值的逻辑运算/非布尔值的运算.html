@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+    /** 
+     * && || 非布尔值的情况
+     *      -对于非布尔值与或运算时，会先将其转换为布尔值，然后在运算，并且返回原值
+     * 
+     * -与&&(与)运算：
+     *              -如果第一个值是true，则必然返回第二个值
+     *              -如果第一个值为false，则直接返回第一个值
+     *              -如果两个都为true，则返回后边的
+     *          &&运算是找false的运算，只要一开始就有false就会立即返回false
+     * 
+     * -或||(或)运算：
+     *              -如果第一个值true，则直接返回第一个值
+     *              -如果第一个值是false，则直接返回第二个值，无论第二个值是否是true
+     *              -如果两个都为true，则返回后边的
+     *          ||运算是找true的运算，只要一开始就有true就会立即返回true
+     **/
+        
+        /*&&与运算：如果两个都为true。则返回后边的
+                 如果两个值中有false，则返回靠前的false（其中true不算入false的排序中）*/
+        
+        //true和true  
+        var result=1 && 2;//返回值为2
+        console.log("reshlt1=" +result);
+        
+        //false&&true
+        result=0&&2;//返回值为0   这其中true(2)不算入false的排序，所以2 之前 的0为第一个false  
+        console.log("reshlt1.1=" +result);
+        result=2&&0;//返回值为0   这其中true(2)不算入false的排序，所以2 后面 的0为第一个false 
+        console.log("reshlt1.2=" +result);
+
+        //false//false
+        result=NaN&&0;//返回值为NaN   NaN和0都为false，但是NaN为第一个false，所以返回NaN
+        console.log("reshlt1.3=" +result);
+        result=0&&NaN;//返回值为0     O和NaN都为false，但是0为第一个false，所以返回0
+        console.log("reshlt1.4=" +result);
+
+
+        /*
+        ||或运算：
+
+        
+        **/
+        //true&&true  如果第一个值为true，则直接返回第一个值
+        result=2||1;//返回值为2
+        console.log("result2=" +result);
+
+        //false&&true
+        //false&&true  如果第一个值为false，则直接返回第二个值
+        result=0||1;//返回值为1
+        console.log("result2.1=" +result);
+        result=NaN||1;//返回值为1
+        console.log("result2.11=" +result);
+
+        //true&&false
+        result=1||0;//返回值为1
+        console.log("result2.2=" +result);
+        result=1||NaN;//返回值为1
+        console.log("result2.3=" +result);
+
+
+        result=""||"hello";//返回值为hello
+        console.log("result3=" +result);
+
+        result=-1||"hello";//返回值为-1
+        console.log("result4=" +result);
+    
+    
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

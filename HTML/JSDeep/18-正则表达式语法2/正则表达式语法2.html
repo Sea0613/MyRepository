@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>正则表达式语法2</title>
+    <script>
+    /**
+        检查一个字符串中是否含有 . 
+        . 表示任意字符
+        在正则表达式中使用\作为转义字符
+        \. 用来表示 .
+        \\ 用来表示 \
+        注意: 使用构造函数来创建正则表达式时，由于它的参数是一个字符串，而\是字符串中的转义字符，
+        如果要使用\，则需要使用\\来代替
+
+        \w -表示任意字母,数字, _  [A-z 0-9]
+        \W -表示除了字母，数字，_ [^A-z 0-9]
+        \d -表示任意数字[0-9]
+        \D -表示除了数字 [^0-9]
+        \s -表示空格
+        \S -除了空格
+        \b -表示单词边界
+        \B -除了单词边界
+
+    **/
+
+    var reg=/./;
+    console.log(reg.test("."));//true
+    console.log(reg.test("bbb"));//true
+
+    var reg=/\./;
+    console.log(reg.test("."));//true
+    console.log(reg.test("bbb"));//falses
+
+    reg=/\\/;
+    console.log(reg.test("\\"));true
+
+    reg=new RegExp("\\.");//表示\.
+    reg2=new RegExp("\\\\");//表示\\
+    console.log(reg);//结果为 /\./
+    console.log(reg2);//结果为 /\\/
+
+
+
+    reg=/\s/;//表示空格
+    console.log(reg.test("  "));//true
+    console.log(reg.test("zhm"));//false
+
+    reg=/\S/;
+    console.log(reg.test("   "));//false
+    console.log(reg.test("zhm"));//true
+
+    reg=/\bchild\b/;
+    console.log(reg.test("childzhm"));//false
+    console.log(reg.test("fsn child zhm"));//true
+
+    //接受用户的输入
+    //var str=prompt("请输入用户名");
+    //console.log(str);
+
+    var str="     zhm     fsn     ";
+    //去除空格使 "" 来替换空格
+    str=str.replace(/\s/g,"");//去除所有空格
+    console.log(str);//zhmfsn
+
+    str1=str.replace(/^\s*/,"");//表示去除开头的0个或多个空格
+    console.log(str1);
+
+    str2=str.replace(/\s*$/,"");//表示去除结尾的0个或多个空格
+    console.log(str2);
+
+    str3=str.replace(/^\s*|\s*$/g,"");//表示去除开头和结尾的空格
+    console.log(str3);
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

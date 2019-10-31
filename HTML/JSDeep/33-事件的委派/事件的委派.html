@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>事件的委派</title>
+    <script>
+        /**
+            事件的委派说明:
+                    - 点击ul中原来的三个超链接可以触发响应函数，但是新添加到ul中的新链接
+                    如果不给它重新绑定单击响应函数的话就无法触发ul中原来的单击响应事件
+
+            事件的委派：
+                - 指将事件统一绑定给元素的共同祖先元素，这样当后代元素上的事件触发时，
+                会一直冒泡到祖先元素，从而通过祖先元素的响应函数来处理事件
+
+                - 事件委派是利用了冒泡，通过委派可以减少事件绑定的次数，提高程序性能
+
+            target
+                - event中的target表示的触发事件的对象,谁触发的，target就是谁
+        
+        **/
+
+        window.onload = function () {
+            var u1=document.getElementById("u1");
+            var btn01=document.getElementById("btn01");
+            btn01.onclick=function(){
+                var li=document.createElement("li");
+                li.innerHTML='<a href="javascript:;" class="link">新链接</a>';
+                u1.appendChild(li);
+            }
+
+            var allA = document.getElementsByTagName("a");
+            // for (var i = 0; i < allA.length; i++) {
+            //     allA[i].onclick = function () {
+            //         alert("wazhmaw");
+            //     }
+            // }
+            u1.onclick=function(event){
+                event=event||window.event;
+                if(event.target.className=="link")
+                alert("我是u1的单击响应函数");
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="btn01">添加超链接</button>
+    <ul id="u1" style="background-color: skyblue;">
+        <li>
+            <p>我是p元素</p>
+        </li>
+        <li><a href="javascript:;" class="link">超链接一</a></li>
+        <li><a href="javascript:;" class="link">超链接二</a></li>
+        <li><a href="javascript:;" class="link">超链接三</a></li>
+    </ul>
+</body>
+
+</html>

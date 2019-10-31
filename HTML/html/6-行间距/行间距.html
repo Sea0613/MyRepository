@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>行间距</title>
+    <style>
+    /* 
+    使用line-height来设置字体的行高
+    行间距=行高-字体大小
+
+    对于单行文本来说，可以将行高设置为和父级元素的高度一致
+    这样可以使单行文本在父级元素中垂直居中
+     */
+    .box{
+        width: 100%;
+        height: 200px;
+        background-color: yellowgreen;
+        line-height: 200px;
+        text-align: center;
+    }
+
+    /* 
+    在font中也可以指定行高
+    在字体大小后可以添加/行高，来指定行高，该值是可选的，如果不指定会使用默认值
+    
+     */
+    .p1{
+        font: 30px/60px "黑体";
+
+    }
+    
+    
+    </style>
+</head>
+<body>
+    <p class="box">
+        子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？”〖翻译〗
+    </p>
+    <p class="p1">
+
+        子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？”〖翻译〗
+        子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？”〖翻译〗
+        子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？”〖翻译〗
+        子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？”〖翻译〗
+        子曰：“学而时习之，不亦说乎？有朋自远方来，不亦乐乎？人不知而不愠，不亦君子乎？”〖翻译〗
+    </p>
+
+</body>
+       
+</html>

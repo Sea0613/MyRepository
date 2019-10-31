@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>overflow</title>
+    <style>
+        /* 
+         * 通过overfolw可以设置父元素如何处理子元素溢出的内容
+           可选值：
+                -visible：默认值，不会对一处内容做处理，元素会在父元素以外的位置显示
+                -hidden：溢出的内容会被修剪，不会显示
+                -scroll：会为父元素添加滚动条，通过拖动滚动条来查看完整内容
+                            无论内容是否溢出都会添加水平垂直滚动条
+                -auto：会根据需求自动添加溢出方向的滚动条，如果没溢出这不添加
+         */
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color: aquamarine;
+            overflow: auto;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        sadaskd  djasbf  kasfkasf  jasbfma  snfas  lnjas fbaflas  nnfjk asb  fasnf assabf,as f
+        sadaskd  djasbf  kasfkasf  jasbfma  snfas  lnjas fbaflas  nnfjk asb  fasnf assabf,as f
+        sadaskd  djasbf  kasfkasf  jasbfma  snfas  lnjas fbaflas  nnfjk asb  fasnf assabf,as f
+    </div>
+</body>
+</html>

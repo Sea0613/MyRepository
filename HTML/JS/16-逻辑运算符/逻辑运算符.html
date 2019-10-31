@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*
+         *在JS中为我们提供了三种逻辑运算符
+         * ! ： 非
+         *      -!可以用来对一值进行非运算 
+         *      -所谓非运算就是指只对一个 布尔值 进行取反操作，即ture变false，false变ture
+         *      -如果对一个值进行两次取反，它不会变化   (!!a);
+         *      -如果对非布尔值进行运算，则会先将其转换为布尔值，然后再取反
+         *       所以我们可以利用这一特点，来将一个其他的数据类型转换为布尔值
+         *       可以将任意一个数据类型取反两次，来将其转换为布尔值，原理和Boolean()函数一样
+         * 
+         * && ：与
+         *      -&&可以对符号两侧的值进行与运算并返回结果
+         *      -运算规则：
+         *              -两个值中只要有一个值为false就返回false
+         *               只有两个值都为true时，才会返回true
+         *              -JS中的"与"属于短路的与，如果第一个值为false，则不会看第二个值
+         * 
+         * ||：或、
+         *      -||可以对符号两侧的值进行或运算并返回结果
+         *      -运算规则：
+         *              -两个值只要有一个true，就返回true
+         *               如果两个都是false，才会返回false
+         *              -JS中的"或"属于短路的或
+         *               如果第一个值为true，则不会检查第二个值 
+         * */
+        var a=true;
+        a=!a;// a=false;
+        console.log(typeof a);
+        console.log("a1=" +a);//值为false
+        var a=false;
+        a=!!a;// a=true;
+        console.log(typeof a);//类型为布尔
+        console.log("a2=" +a);//值为false
+
+        //如果两个值都是true则返回true
+        var result=true&&true;//返回值为true
+        result=true&&false;//返回值为false
+        result=false&&true;//返回值为false
+        result=false&&false;//返回值为false
+        console.log("result1=" +result);
+        
+        // true && alert("我会出来。。");第一个值为true会检查第二个值
+        false && alert("我不会出来。。");//第一个值为false，则不会检查第二个值，会直接返回false，alert不会运行
+
+
+        //或运算||
+        //两个都是false则返回false
+        result=false||false;//返回false
+        result=true||false;//返回值为true
+        result=false||true;//返回值为true
+        console.log("result2=" +result);
+
+        // false||alert("123");//第一个值为false时，则会检查第二个值。alert会运行
+        true||alert("123");//地一个值为true时，则不会检查第二个值。alert不会运行
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

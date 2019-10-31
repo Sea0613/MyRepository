@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组的遍历练习</title>
+    <script>
+        function Person(name, age, gender) {
+            this.name = name;
+            this.age = age;
+        }
+        Person.prototype.toString = function () {
+            return "Person[name=" + this.name + ",age=" + this.age + "]";
+        };
+        var per = new Person("swk", 28);
+        var per2 = new Person("zbj", 8);
+        var per3 = new Person("shs", 18);
+        var per4 = new Person("ts", 16);
+        var per5 = new Person("ytj", 38);
+
+        var perArr = [per, per2, per3, per4, per5];//将这些person放入一个数组中
+
+        //创建一个函数，可以将perArr中年满18岁的Person提取出来，然后封装到一个新的数组中并返回
+        // arr   形参，要提取信息的数组
+        function getAdult(arr) {
+            var newArr = [];//创建一个新的数组
+            for (i = 0; i < arr.length; i++) {
+                var p = arr[i];
+                if (p.age >= 18) {
+                    newArr.push(p);//如果大于18，则将这个对象添加到newArr中，并将对象放入到新的数组中
+                }//判断Person对象的age是否大于等于18
+            }//遍历arr，获取arr中Person对象
+            return newArr;
+        }
+        var result = getAdult(perArr);
+        console.log(result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

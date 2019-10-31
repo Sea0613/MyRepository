@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用工厂方法创建函数</title>
+    <script>
+
+        /**
+         * 使用工厂方法创建的对象，使用的构造函数都是Object
+         * 所以创建的对象都是Object这个类型，就导致我们无法区分出多种不同类型的对象
+         * 
+         * 
+         * 
+         * 
+         * 
+         * **/
+        // var obj={
+        //     name:"swk",
+        //     age:18,
+        //     gender:"男",
+        //     sayName:function(){
+        //         alert(this.name);
+        //     }
+        // }
+
+
+
+
+
+        function creatPerson(name,age,gender){
+            var obj=new Object();
+            obj.name=name;
+            obj.age=age;
+            obj.gender=gender;
+            obj.sayName=function(){
+                alert(this.name);
+            };
+            return obj;
+        }
+        var obj2=creatPerson("zhm",23,"男");
+        var obj3=creatPerson("fsn",24,"男");
+        var obj4=creatPerson("sss",22,"男");
+        console.log(obj2);//"zhm",23,"男"
+        console.log(obj3);//"fsn",24,"男
+        obj3.sayName();//fsn
+
+        function creatDog(name,age){
+            var obj=new Object();
+            obj.name=name;
+            obj.age=age;
+            obj.sayHello=function(){
+                alert("wazhm");
+            };
+            return obj;
+        }
+        var dog=creatDog("dfsn",24);
+        console.log(dog);
+        dog.sayHello();
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

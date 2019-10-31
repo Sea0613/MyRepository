@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>if练习1</title>
+    <script>
+        /**
+         * 练习1：
+         * 
+         * 从键盘输入小明的期末成绩
+         * 当成绩为100时，奖励一辆宝马
+         * 当成绩为80-99时，奖励一台苹果手机
+         * 当成绩为60-80时，奖励一本书
+         * 其他时，什么奖励也没有
+         **/
+
+        /**
+         * prompt() 函数可以弹出一个提示框，该提示框中会带有一个文本框，
+         * 用户可以在文本框中输入一段内容，该函数需要一个字符串作为参数，
+         * 该字符串将会作为提示框的提示文字
+         * 
+         * prompt() 函数的返回值的类型是String
+         * 
+         * 用户输入的内容将会作为函数的返回值返回，可以定义一个变量来接受该内容
+         * 
+         * **/
+
+        while(true){
+            var score = prompt("请输入小明的期末成绩");
+            if(score>=0&&score<=100){
+                break;
+            }
+        }
+        if(score>100||score<0||isNaN(score)){
+            alert("分数是假的无效");
+        }else{
+            if (score == 100) {
+            alert("奖励一辆宝马");
+        } else if (score>=80 && score<100) {
+            alert("奖励一台苹果手机");
+        } else if (score>=60 && score<=80) {
+            alert("奖励一本书");
+        } else {
+            alert("没有任何奖励");
+        }
+
+        }
+        
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

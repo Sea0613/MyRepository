@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>div跟随移动</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+
+        body {
+            height: 2000px;
+            width: 3000px;
+        }
+        #b{
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+        }
+    </style>
+    <script>
+        /**
+            pageX和pageY
+                - 可以获取鼠标相对于当前页面的坐标，但IE8及以下的浏览器不支持该属性
+
+            chrome认为浏览器的滚动条是body的，可以通过body.scrolltop来获取
+            而火狐等浏览器认为浏览器滚动条是html的
+        
+        **/
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            document.onmousemove = function (event) {
+                var event = event || window.event;
+                var lt = document.body.scrollLeft || document.documentElement.scrollLeft;
+                var tp = document.body.scrollTop || document.documentElement.scrollTop;
+                var left = event.clientX;
+                var top = event.clientY;
+                box1.style.left = left + lt + "px";
+                box1.style.top = top + tp + "px";
+            }
+            var b=document.getElementById("b");
+            b.onmousemove=function(event){
+                event = event || window.event;
+                event.cancelBubble=true;//关闭冒泡
+            }
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div id="b"></div>
+    <div id="box1"></div>
+</body>
+
+</html>

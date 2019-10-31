@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Date对象</title>
+    <script>
+        /**
+            Date对象
+                - 在JS中使用Date对象来表示一个时间
+            
+            getDate()
+                - 获取当前日期对象是几日  
+
+            getDay()
+                - 获取当前日期对象是周几
+                - 会返回一个0-6的值
+                    0表示周日
+                    1表示周一
+                    以此类推
+
+            getMonth()
+                - 获取当前时间对象的月份
+                - 会返回一个0-11的值
+                    0表示1月
+                    1表示2月
+                    11表示12月
+
+            getFullYear()
+                - 获取当前日期对象的年份
+
+            getTime()
+                - 获取当前时间对象的时间戳
+                - 时间戳，指的是从格林威治标准时间的1970年1月1日，0时0分0秒
+                    到当前日期所花费的毫秒数(1秒=1000毫秒)
+                - 计算机底层在保存时间时使用的都是时间戳
+        
+        **/ 
+        //创建一个Date对象
+        //如果直接使用构造函数创建一个Date对象，则会封装为【当前代码执行的时间】
+        var d=new Date();
+        console.log(d);
+
+        //创建一个指定的时间对象
+        //需要在构造函数中传递一个表示时间的字符串作为参数
+        //日期的格式：月份/日/年 时:分:秒
+        var d2=new Date("12/03/2016 11:10:30");
+        console.log(d2);
+        var date=d2.getDate();
+        var day=d.getDay();
+        console.log("date="+date);
+        console.log("day="+day);//周2
+
+        var month=d2.getMonth();
+        console.log("month="+month);//返回值为11，表示12月
+
+        var year=d2.getUTCFullYear();
+        console.log("year="+year);
+
+        var time=d2.getTime();
+        console.log("time="+time/1000/60/60/24/365);
+
+        var d3=new Date("1/1/1970 0:0:0");
+        time=d3.getTime();
+        console.log("time="+time);//北京时间于格林威治时间产生的时差 -28800000
+
+        //利用时间戳检测运行时间
+        var start=Date.now();//获取此行代码执行时的时间戳
+        for(var i=0;i<1500;i++){
+            console.log(i);
+        }
+        var end=Date.now();//获取此行代码执行时的时间戳
+        console.log("执行了:"+(end-start)+"毫秒");//执行了123毫秒
+
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

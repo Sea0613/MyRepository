@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>拖拽</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1 {
+            width: 150px;
+            height: 150px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #box2 {
+            width: 150px;
+            height: 150px;
+            background-color: greenyellow;
+            position: absolute;
+            left: 400px;
+            top: 400px;
+        }
+        #img1{
+            width: 150px;
+            height: 150px;
+            position: absolute;
+            left: 850px;
+            top: 0px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            function fun(obj) {
+                obj.onmousedown = function (event) {
+                    var event = event || window.event;
+                    var lt = event.clientX - obj.offsetLeft;
+                    var tp = event.clientY - obj.offsetTop;
+                    document.onmousemove = function (event) {
+                        var event = event || window.event;
+                        var left = event.clientX;
+                        var top = event.clientY;
+                        obj.style.left = left - lt + "px";
+                        obj.style.top = top - tp + "px";
+                    }
+                    document.onmouseup = function () {
+                        document.onmousemove = null;
+                        document.onmouseup = null;
+                    }
+                    return false;
+                }
+            }
+            fun(box1);
+            fun(box2);
+            fun(img1);
+        }
+
+
+    </script>
+</head>
+
+<body>
+    <div id="box1"></div>
+    <div id="box2"></div>
+    <img src="1.jpg" id="img1">
+</body>
+
+</html>

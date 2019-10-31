@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>切换图片练习</title>
+    <style>
+        div{
+            width: 800px;
+            height: 900px;
+            margin: 50px auto;
+        }
+        #imgName{
+            width: 800px;
+            line-height: 900px;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var imgName=document.getElementById("imgName"); 
+            var imgArr=["img/1.jpg","img/2.jpg","img/3.jpg","img/4.jpg","img/5.jpg"];
+            var index=0;
+            var timer=setInterval(function(){
+                index++;
+                if(index>=imgArr.length){
+                    index=0;
+                }
+                imgName.src=(imgArr[index]);
+                // if(index>imgArr.length-1){
+                //     clearInterval(timer);
+                // }
+            },500);
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <img src="img/1.jpg" alt="" id="imgName">
+    </div>
+</body>
+</html>

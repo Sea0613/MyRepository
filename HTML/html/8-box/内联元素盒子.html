@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>内联元素的盒子t</title>
+    <style>
+        /* *{
+            margin: 0;
+            padding: 0;
+        }     */
+        .s1{
+            /* width: 100px;
+            height: 100px;    内联元素不能设置width和height  width和height对内联元素无效*/
+
+            /* 内联元素可以设置水平方向的内边距 */
+            padding-left: 100px;
+            padding-right: 100px;
+
+            /* 内联元素可以设置垂直方向的内边距，但是不会影响页面的布局 */
+            /* padding-top: 50px;
+            padding-bottom: 50px; */
+
+            background-color: green;
+
+            /* 内联元素可以设置边框，但是垂直的边框不会影响布局，水平的会影响布局 */
+            border: 30px red solid;
+
+            /* 内联元素支持水平方向的外边距  水平方向的相邻外边距不会重合，而是求和 */
+            margin-right:50px;
+            
+            /* 内联元素不支持垂直方向的外边距 */
+            margin-top: 300px;
+            margin-bottom: 300px;
+        }
+        .s2{
+            padding-left: 100px;
+            padding-right: 100px;
+            background-color: green;
+            border: 5px red solid;
+            margin-left:100px;
+        }
+        .box{
+            width: 830px;
+            height: 100px;
+            background-color: orange;
+            margin-top: 200px;
+           
+        }
+    
+    </style>
+</head>
+<body>
+    <span class="s1">内联元素1</span>
+    <span class="s2">内联元素2</span>
+    <span>内联元素3</span>
+    <div class="box">
+        我是一个块级元素
+    </div>
+</body>
+</html>

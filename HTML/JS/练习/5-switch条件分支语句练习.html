@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>switch条件分支语句</title>
+    <script>
+
+        //当成绩大于等于60分时，显示成绩合格。当成绩小于60分时，显示成绩不及格
+
+        var num = 300;
+        if (num > 100 || num < 0 || isNaN(num)) {
+            console.log("成绩不合法")
+        } else {
+            switch (parseInt(num / 10)) {
+                case 10:
+                case 9:
+                case 8:
+                case 7:
+                case 6:
+                    console.log("成绩合格");
+                    break;
+                default:
+                    console.log("成绩不及格");
+            }
+        }
+
+        if (num > 100 || num < 0 || isNaN(num)) {
+            console.log("成绩不合法")
+        } else {
+            switch (true) {
+                case num >= 60:
+                    console.log("成绩合格");
+                    break;
+                default:
+                    console.log("成绩不合格");
+                    break;
+            }
+        }
+
+        //使用if语句写：
+        var score=120;
+        if(score>100||score<0||isNaN(score)){
+            console.log("成绩太虚假");
+        }else{
+            if(score>=60){
+            console.log("成绩合格");
+        }else{
+            console.log("成绩不及格");
+        }
+        }
+       
+        
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

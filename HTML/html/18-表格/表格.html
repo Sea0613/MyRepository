@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>table</title>
+    <!-- 
+        th表头
+        tr行
+        td列
+        colspan横向单元格合并
+        rowspan纵向单元格合并
+
+
+
+
+        长表格可以利用 thead表头 tbody表格主体 tfoot表格底部来制作
+        thead中的内容永远显示在表格头部，无论写在table中的上中下任意位置
+        tbody中的内容永远显示在表格中间，无论写在table中的上中下任意位置
+        tfoot中的内容永远显示在表格底部，无论写在table中的上中下任意位置
+
+        如果表格中没有写tbody，浏览器会制动在表格中添加tbody
+        并且将所有的tr都放在tbody中，所以tr并不是table的子元素，而是tbody的子元素
+        通过table>tr无法选中行 需要通过tbody>tr来选中
+
+
+
+
+
+     -->
+    <style>
+        table{
+            width: 400px;
+            /* border: 1px solid black; */
+            margin: 200px auto;
+            /* border-spacing: 0px; table和td的边框之间默认右一个距离 border-collapse: collapse可设置表格边框之间的距离 */
+            border-collapse: collapse; /* 合并表格边框  如果设置了表格合并，则border-spacing自动失效*/
+        }
+        td{
+            /* background-color: green; */
+            border: 1px solid black;
+            text-align: center;
+        }
+        th,tr:nth-of-type(even){
+            background-color: green;
+        }
+        tr:hover{
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>电话</th>
+            <th>住址</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td rowspan="2">宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <!-- <td>宁都</td> -->
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+            <tr>
+                <td>张三</td>
+                <td>男</td>
+                <td>123</td>
+                <td>宁都</td>
+            </tr>
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3">总合计</td>
+                <!-- <td></td>
+                <td>总结</td> -->
+                <td>好呀</td>
+            </tr>
+        </tfoot>
+    </table>
+
+</body>
+
+</html>

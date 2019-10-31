@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>列表</title>
+
+    <!-- 
+
+        去掉项目符号
+     -->
+     <!-- <style  type="text/css">
+        ul{
+            list-style: none;
+        }
+
+     </style> -->
+     
+</head>
+<body>
+    <!--
+        列表就相当于去超市购物时的购物清单
+         在html中也可以创建列表，在网页中一共有三种列表：
+         1.无序列表
+         2.有序列表
+         3.定义列表
+    -->
+    <!-- 
+        无序列表
+        - 使用ul标签来创造一个无序列表
+        使用li在ul中创建一个一个的列表项
+        一个li就是一个列表项
+        通过type属性可以修改无序列表的项目符号
+
+        注意：默认的项目符号一般不用
+        如果需要设置项目符号，则可以采用为li设置背景图片的方式来设置
+
+         ol ul li都是块元素
+     -->
+     <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+     </ul>
+
+     <!-- 
+         有序列表ol和无序列ul表类似，只不过使用ol来代替ul
+         有序列表使用有序的序号来作为项目符号
+         type属性可以指定序号的类型
+      -->
+      <ol type="1">
+            <li>123</li>
+            <li>123</li>
+            <li>123</li>
+            <li>123</li>
+            <li>123</li>
+      </ol>
+      <!-- 
+          列表之间都可以相互嵌套，可以在无序列表中嵌套有序列表，也可以放无序列表
+       -->
+       <P>菜谱</P>
+       <ul>
+           <li>234
+               <ol>
+                   <li>2321</li>
+                   <li>41414</li>
+                   <li>242144</li>
+               </ol>
+           </li>
+           <li>3435</li>
+           <li>4234</li>
+           <li>64364</li>
+       </ul>
+</body>
+</html>
