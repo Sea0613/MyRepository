@@ -4,10 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>定时器的应用</title>
+    <title>定时器的应用一</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box1{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+        #box2{
+            width: 0;
+            height: 1000px;
+            border: 1px solid black;
+            position: absolute;
+            left: 800px;
+            top: 0;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var box1=document.getElementById("box1");
+            var btn01=document.getElementById("btn01");
+            var timer;
+            btn01.onclick=function(){
+                clearInterval(timer);
+                timer=setInterval(function(){
+                    var oldValue=parseInt(getStyle(box1,"left"));
+                    var newValue=oldValue+10;
+                    if(newValue>800){
+                        newValue=800;
+                    }
+                    box1.style.left=newValue+"px";
+                    if(newValue==800){
+                        clearInterval(timer);
+                    }
+                },30);
+            }
+        }
 
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj, null)[name];//正常浏览器的方式
+            } else {
+                return obj.currentStyle[name];//IE8的方式
+            }//方法一
+
+            // return window.getComputedStyle?getComputedStyle(obj,null)[name]:obj.currentStyle[name];//方法二
+        }
+    </script>
 </head>
 <body>
-    <button id="btn01">点一下box1向右移动</button>
+    <button id="btn01">点我让box1动</button>
+    <br>
+    <br>
+    <div id="box1"></div>
+    <div id="box2"></div>
 </body>
 </html>
