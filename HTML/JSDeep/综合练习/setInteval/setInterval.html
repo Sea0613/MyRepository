@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>setInterval</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            btn01.onclick = function () {
+                move(box1,1820,10);
+            };
+
+            btn02.onclick = function () {
+                move(box1,0,10);
+            };
+
+        }
+
+        var timer;
+        function move(obj, target, speed) {
+            clearInterval(timer);
+            var current = parseInt(getStyle(obj, "left"));
+            if (current > target) {
+                speed = -speed;
+            }
+            timer = setInterval(function () {
+                var oldValue = parseInt(getStyle(obj, "left"));
+                var newValue = oldValue + speed;
+                if (speed < 0 && newValue < target || speed > 0 && newValue > target) {
+                    newValue = target;
+                };
+                obj.style.left = newValue + "px";
+
+                if (newValue == target) {
+                    clearInterval(timer);
+                }
+            }, 30);
+        }
+
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj, null)[name];
+            } else {
+                return obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn01">向右</button>
+    <button id="btn02">向左</button>
+    <br>
+    <br>
+    <div id="box1"></div>
+</body>
+
+</html>

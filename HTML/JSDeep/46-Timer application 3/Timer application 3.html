@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Timer application 3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            position: absolute;
+            left: 0;
+            top: 200px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+
+            btn01.onclick = function () {
+                move(box1, "left", 1820, 5);
+            };
+
+            btn02.onclick = function () {
+                move(box1, "left", 0, 5);
+            };
+
+            var btn03 = document.getElementById("btn03");
+            btn03.onclick = function () {
+                move(box2, "left", 1820, 10);
+            };
+
+            var btn04=document.getElementById("btn04");
+            btn04.onclick=function(){
+                move(box2,"width",1920,20,function(){
+                    move(box2,"height",600,20,function(){
+                        move(box2,"width",100,20,function(){
+                            move(box2,"height",100,30,function(){
+                                move(box2,"width",1920,30,function(){
+                                    move(box2,"height",800,30,function(){
+                                        move(box2,"top",43,30,function(){
+                                            move(box2,"width",100,30,function(){
+                                                move(box2,"height",100,30,function(){
+                                                    move(box2,"top",800,20,function(){
+                                                        
+                                                    })
+                                                })
+                                            })
+                                        })
+                                    })
+                                })
+                            })
+                        })
+                    })
+                });
+            }
+
+        }
+
+        function move(obj, attribute, target, speed, callback) {
+            clearInterval(obj.timer);
+            var current = parseInt(getStyle(obj, attribute));
+            if (current > target) {
+                speed = -speed;
+            }
+            obj.timer = setInterval(function () {
+                var oldValue = parseInt(getStyle(obj, attribute));
+                var newValue = oldValue + speed;
+                if ((speed < 0 && newValue < target) || (speed > 0 && newValue > target)) {
+                    newValue = target;
+                };
+                obj.style[attribute] = newValue + "px";
+
+                if (newValue == target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }   
+            }, 30);
+        }
+
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj, null)[name];
+            } else {
+                return obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <button id="btn01">点我让box1向右移动</button>
+    <button id="btn02">点我让box1向左移动</button>
+    <button id="btn03">点我让box2向右移动</button>
+    <button id="btn04">测试按钮</button>
+    <br>
+    <br>
+    <div id="box1"></div>
+    <div id="box2"></div>
+
+</body>
+
+</html>
