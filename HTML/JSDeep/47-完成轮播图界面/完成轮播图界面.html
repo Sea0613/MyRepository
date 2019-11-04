@@ -123,6 +123,7 @@
             function autoChange(){
                 timer=setInterval(function(){
                     index++;
+                    index %=imgArr.length;
                     move(imgList,"left",-620*index,10,function(){
                         setA();
                     });
