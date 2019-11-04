@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>定时器练习</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #btn {
+            /* background-color: yellowgreen; */
+            text-align: center;
+        }
+
+        button {
+            width: 200px;
+            height: 35px;
+        }
+
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+        }
+
+        #box2 {
+            width: 100px;
+            height: 100px;
+            background-color: greenyellow;
+            position: absolute;
+            left: 0;
+            top: 350px;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var box1 = document.getElementById("box1");
+            var box2 = document.getElementById("box2");
+            var btn01 = document.getElementById("btn01");
+            var btn02 = document.getElementById("btn02");
+            var btn03 = document.getElementById("btn03");
+            var btn04 = document.getElementById("btn04");
+            btn01.onclick = function () {
+                move(box1, "left", 1820, 20);
+            };
+            btn02.onclick = function () {
+                move(box1, "left", 0, 20);
+            };
+            btn03.onclick = function () {
+                move(box2, "left", 1820, 20);
+            };
+            btn04.onclick = function () {
+                move(box2, "width", 1920, 20, function () {
+                    move(box2, "height", 500, 20, function () {
+                        move(box2, "top", 0, 10, function () {
+                            move(box2, "width", 1920, 20, function () {
+                                move(box2, "height", 600, 20, function () {
+                                    move(box2, "top", 350, 20, function () {
+                                        move(box2, "width", 100, 20, function () {
+                                            move(box2, "height", 100, 20, function () {
+
+                                            });
+                                        });
+                                    });
+                                });
+                            });
+                        });
+                    });
+                });
+            };
+
+        }
+
+        function move(obj, attribute, target, speed, callback) {
+            clearInterval(obj.timer);
+            var current = parseInt(getStyle(obj, attribute));
+            if (current > target) {
+                speed = -speed;
+            }
+            obj.timer = setInterval(function () {
+                var oldValue = parseInt(getStyle(obj, attribute));
+                var newValue = oldValue + speed;
+                if (speed < 0 && newValue < target || speed > 0 && newValue > target) {
+                    newValue = target;
+                }
+                obj.style[attribute] = newValue + "px";
+                if (newValue == target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+            }, 30);
+        }
+
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj, null)[name];
+            } else {
+                return obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="btn">
+        <button id="btn01">box1右移</button>
+        <button id="btn02">box1左移</button>
+        <button id="btn03">box2右移</button>
+        <button id="btn04">测试按钮</button>
+    </div>
+    <div id="box1"></div>
+    <div id="box2"></div>
+</body>
+
+</html>

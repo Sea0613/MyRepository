@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>完成轮播图界面</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        #outer {
+            width: 620px;
+            height: 350px;
+            margin: 50px auto;
+            background-color: yellowgreen;
+            padding: 10px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        img {
+            width: 600px;
+            height: 350px;
+        }
+
+        #imgList {
+            list-style: none;
+            /* width: 3600px; */
+            position: absolute;
+            left: 0px;
+        }
+
+        #imgList li {
+            float: left;
+            margin: 0 10px;
+        }
+
+        #nav {
+            position: absolute;
+            bottom: 15px;
+        }
+
+        #nav a {
+            float: left;
+            width: 15px;
+            height: 15px;
+            background-color: red;
+            margin: 0 5px;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+
+        #nav a:hover {
+            background-color: black;
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            //设置ul的宽度
+            var imgList = document.getElementById("imgList");
+            var imgArr = document.getElementsByTagName("img");
+            imgList.style.width = 620 * imgArr.length + "px";
+
+            //设置导航按钮居中
+            var nav = document.getElementById("nav");
+            var outer = document.getElementById("outer");
+            nav.style.left = (outer.offsetWidth - nav.offsetWidth) / 2 + "px";
+
+            //设置allA(超链接)的默认选中效果
+            var allA = document.getElementsByTagName("a");
+            var index = 0; //为超链接设置索引
+            allA[index].style.backgroundColor = "black";
+
+            for (var i = 0; i < allA.length; i++) {
+                allA[i].num = i;  //为每一个超链接都添加一个number属性
+                allA[i].onclick = function () {
+                    index = this.num;  //获取点击超链接的索引，并将其设置为index
+
+                    clearInterval(timer);//关闭自动切换的定时器
+
+                    /*
+                    切换图片
+                        第一张 索引0 ul的偏移量0
+                        第二张 索引1 ul的偏移量-620
+                        第三章 索引2 ul的偏移量-1240
+                    */
+                    // imgList.style.left = -620 * index + "px";
+
+                    setA(); //设置选中a的颜色
+                    move(imgList,"left",-620*index,30,function(){
+                        autoChange();  //动画执行完毕，重新开启自动切换
+                    })
+
+                };  //为所有的超链接都绑定单击响应函数
+            };  //遍历所有的超链接
+
+
+            autoChange();  //自动切换图片
+
+            //创建一个方法用来设置选中的a的颜色
+            function setA() {
+
+                if(index>=imgArr.length-1){
+                    index=0;
+
+                    imgList.style.left=0;  //设置ul的偏移量为0
+                };  //判断当前索引是否是最后一张图片
+
+                for (var i = 0; i < allA.length; i++) {
+                    allA[i].style.backgroundColor = "";
+                }; //遍历所有的a，并将他们的颜色设置为红色
+
+                //将选中的a设置为黑色
+                allA[index].style.backgroundColor = "black";
+            };
+
+            var timer;
+            //创建一个函数，用来开启自动切换图片
+            function autoChange(){
+                timer=setInterval(function(){
+                    index++;
+                    move(imgList,"left",-620*index,10,function(){
+                        setA();
+                    });
+                },2000);
+            }
+
+        }
+
+
+        //设置动画效果函数
+        function move(obj, attribute, target, speed, callback) {
+            clearInterval(obj.timer);
+            var current = parseInt(getStyle(obj, attribute));
+            if (current > target) {
+                speed = -speed;
+            }
+            obj.timer = setInterval(function () {
+                var oldValue = parseInt(getStyle(obj, attribute));
+                var newValue = oldValue + speed;
+                if ((speed < 0 && newValue < target) || (speed > 0 && newValue > target)) {
+                    newValue = target;
+                };
+                obj.style[attribute] = newValue + "px";
+
+                if (newValue == target) {
+                    clearInterval(obj.timer);
+                    callback && callback();
+                }
+            }, 10);
+        }
+
+        function getStyle(obj, name) {
+            if (window.getComputedStyle) {
+                return getComputedStyle(obj, null)[name];
+            } else {
+                return obj.currentStyle[name];
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div id="outer">
+        <ul id="imgList">
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/1.jpg" alt=""></li>
+        </ul>
+        <div id="nav">
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+</body>
+
+</html>
