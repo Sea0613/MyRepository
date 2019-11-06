@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Data type</title>
+    <script>
+        /**
+            数据类型
+                1.分类：
+                    * 基本（值）数据类型
+                            - String：任意字符串
+                            - Number：任意数字
+                            - Boolean：true/false
+                            - null：null
+                            - undefined：undefined
+
+                    * 对象（引用）类型
+                            - Object：任意对象
+                            - Function：一种特殊的对象（可以执行）
+                            - Array：一种特别的对象（数值下标，内部数据是有序的）
+
+                2.判断
+                    * typeof
+                            - 可以判断：undefined/数值/字符串/布尔值/function
+                            - 不能判断：null与object  object与array
+                            typeof的返回值是：字符串
+
+                    * instanceof：
+                            - 判断对象的基本类型（既可判断 A 是不是 B 的实例，其中 B 是一个对象（Object））
+                            该属性的返回值为：true/false
+                    
+                    * ===（全等）：
+                            - 可以判断：undefined/null        
+        **/
+
+
+        var a;
+        console.log(a, typeof a, typeof a==='undefined', a===undefined);//endefined 'undefined' true true 
+        console.log(undefined==='undefined');//false
+        a=4;
+        console.log(typeof a==='number');//true
+        a='zhmanha';
+        console.log(typeof a==='string');//true   说明typeof的返回值是一个字符串
+        a=true;
+        console.log(typeof a==='boolean');//true
+        a=null;
+        console.log(typeof a==='object', a===null);//true true
+        console.log('-------------------------------------');
+
+
+        //对象
+        var b1={
+            b2:[1,'abc',console.log],//console.log是一个函数
+            b3:function(){
+                console.log('b3');
+                return function(){
+                    return 'zhmanha';
+                }
+            }
+        }
+
+        console.log(b1 instanceof Object,b1 instanceof Array);//true false
+        console.log(b1.b2 instanceof Array,b1.b2 instanceof Object);//true true
+        console.log(typeof b1.b2, '------------');//object
+        console.log(b1.b3 instanceof Function,b1.b3 instanceof Object); //true true
+        console.log(typeof b1.b3==='function');//true
+        console.log(typeof b1.b2[2]==='function');//true  说明console.log是一个函数
+        b1.b2[2](4);//4
+        console.log(b1.b3()());//zhmanha  调用的b1里面的b3中的function中的return function
+
+        b1.b3();//b3
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
