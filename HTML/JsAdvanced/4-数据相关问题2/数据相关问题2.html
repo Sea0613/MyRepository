@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据相关问题2</title>
+    <script>
+    /**
+        1、var a = xxx, a内存中到底保存的是什么？
+            - xxx是基本数据类型，保存的就是xxx这个数据
+            - xxx是对象，保存的是对象的地址值
+            - xxx是一个变量，保存的是xxx的内存内容（可能是基本数据，也可能是地址值）
+
+        2、关于引用变量赋值问题
+            * 多个引用变量指向同一个对象，通过一个变量修改对象内部数据，
+            其他所有的变量看到的是修改之后的数据
+
+            * 多个引用变量指向同一个对象，让其中一个引用变量指向另一个对象，
+            另一个引用变量依然指向前一个对象（即修改前的对象）
+    
+    **/
+        
+
+        var a=3;
+        a=function fun(){
+
+        }
+        
+        //xxx是一个变量
+        var b="abc";
+        a=b;//a保存的
+        b={};
+        a=b;
+
+        /*------------------------*/
+        var obj1={name:"Tom"};
+        var obj2=obj1;
+        obj2.name="bob";//修改与obj1相同的对象中的name属性
+        obj2.age=12;
+        console.log(obj1.name);//bob  n个引用变量指向同一个对象，通过一个变量修改对象内部数据，其他所有的变量看到的是修改之后的数据
+        
+        function fun(obj){
+            obj.name="a";
+        }
+        fun(obj1);
+        console.log(obj2.name);//a  
+
+
+
+        var a={age:12};
+        var b=a;
+        a={name:"bob",age:13};
+        // b.age=15;
+        console.log(b.age,a.age,a.name,b.name);
+
+        function fn(obj){
+            obj={age:15}
+        }
+        fn(a);
+        console.log(a.age);
+
+        function fn1(obj){
+            a={age:15};
+        }
+        fn();
+        console.log(a.age,"-------");
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
