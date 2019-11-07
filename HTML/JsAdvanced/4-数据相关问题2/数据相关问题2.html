@@ -52,19 +52,23 @@
         var b=a;
         a={name:"bob",age:13};
         // b.age=15;
-        console.log(b.age,a.age,a.name,b.name);
+        console.log(+b.age,a.age,a.name,b.name);//12,13,bob,undefined
 
         function fn(obj){
-            obj={age:15}
+            console.log(obj,"---");//{name: "bob", age: 13}
+            obj={age:15};
+            console.log(obj,"22222");//{age: 15}
         }
         fn(a);
-        console.log(a.age);
+        console.log(a.age);//13
 
         function fn1(obj){
-            a={age:15};
+            console.log(obj,"11111");//{name: "bob", age: 13} "11111"
+           a={age:15};
+           console.log(a);//{age: 15}
         }
-        fn();
-        console.log(a.age,"-------");
+        fn1(a);
+        console.log(a.age,"-------");//15
 
     </script>
 </head>
