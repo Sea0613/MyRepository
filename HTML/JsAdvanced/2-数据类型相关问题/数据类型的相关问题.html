@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据类型的相关问题</title>
+    <script>
+    /**
+        1、undefined和null的区别
+            - undefined代表定义了但未赋值
+            - null代表定义了并赋了值，只是值为null
+
+        2、什么时候要给变量赋值为null
+            - 初始赋值，表明将要赋值为对象
+            - 结束前，让对象成为垃圾对象（被垃圾回收器回收）
+        
+        3、严格区分变量类型与数据类型
+            * 数据的类型
+                - 基本类型
+                - 对象类型
+                
+            * 变量的类型（变量内存值的类型）
+                - 基本类型：保存的就是基本类型的数据
+                - 引用类型：保存的是地址值如000fff
+
+    **/
+
+        function Person(name,age){//构造函数 Person类型
+            this.name=name;
+            this.age=age;
+        }
+        var p=new Person('tom',18);//根据类型创造的实例对象
+
+
+        //underined和null的区别
+        var a;
+        console.log(a);//undefined
+        a=null;
+        console.log(a);//null
+
+        var b=null;//初始赋值为null，表明将要赋值为对象
+        b=['zhmanha',18];//确定对象赋值
+        b=null;//让b指向的对象成为垃圾对象（被垃圾回收器回收），释放内存
+
+
+        var c={};//c保存的是对象内存的地址值
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
