@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>callback function</title>
+    <script>
+        /**
+            1、什么是回调函数
+                - 你定义的
+                - 你没调用
+                - 但最终执行了
+            2、常见的回调函数
+                - dom事件回调函数（主要作用于与用户交互）
+                - 定时器回调函数
+                - Ajax请求回调函数（主要作用于与后台交互）
+                - 生命周期回调函数
+    
+        **/
+        window.onload = function () {
+            // document.getElementById("btn01").onclick = function () {
+            //     alert(this.innerHTML);
+            // }
+            var btn01 = document.getElementById("btn01");
+            btn01.onclick = function () {
+                alert(this.innerHTML);
+            }
+
+            
+        }
+        setTimeout(function(){
+            alert("hello world");
+        }, 2000);
+
+    </script>
+</head>
+
+<body>
+    <button id="btn01">dom事件回调函数</button>
+</body>
+
+</html>
