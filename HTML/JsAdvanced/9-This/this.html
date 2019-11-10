@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>this</title>
+    <script>
+    /**
+        1、this是什么？
+            - 任何函数本质上都是通过某个对象来调用的，如果没有直接指定就是window
+            - 所有函数内部都有一个变量this
+            - 它的值是调用函数的当前对象
+        2、如何确当this的值？
+            - test(): this是window
+            - p.test(): this是p
+            - new test(): this是新创建的对象
+            - p.call(obj): this是obj
+
+        - 像函数setColor定义了形参（color），
+        如果调用时不传实参。则输出this.color为undefined。
+        如果调用时传入了实参，则输出this.color为调用setcolor时传入的实参值。
+
+        - 像函数getColor没有定义形参（color），
+        则调用时【不管传不传实参】，则输出的this.color永远都是继承的【调用getColor函数的当前对象】的属性，
+        即p的属性值yellow
+    
+    **/
+
+
+        function Person(color){
+            console.log(this,"252525");//this是Window  "252525"
+            this.color=color;
+            console.log(this.color,"272727");//red 272727
+            this.getColor=function(){
+                console.log(this,"292929");//this是Person {color: "yellow", getColor: ƒ, setColor: ƒ}color: "yellow"getColor: ƒ ()setColor: ƒ (color)__proto__: Object "292929"
+                this.color=color;
+                console.log(this.color,"313131");//yellow 313131
+            };
+            this.setColor=function(color){
+                console.log(this,"333333");//this是Person {color: "yellow", getColor: ƒ, setColor: ƒ} "333333"
+                this.color=color;
+                console.log(this.color,"363636");//p.setColor();//undefined  /  p.setColor("green");//green 
+            };
+        }
+        Person("red");//Window  "252525"  /  red 272727
+        
+        var p=new Person("yellow");//this是Person {} "252525"  /  yellow 272727
+        p.getColor();//this是p / Person {color: "yellow", getColor: ƒ, setColor: ƒ} "292929" /  yellow 313131
+        
+        /*
+            - 像函数setColor定义了形参（color），如果调用时不传实参。则输出this.color为undefined
+            如果调用时传入了实参，则输出this.color为传入的实参值
+        */
+        p.setColor();//this是p / undefined
+        p.setColor("green");//this是p / green     
+
+        var obj={};
+        p.setColor.call(obj,"black");//this是{} "333333"  /  black 363636
+
+        var test=p.setColor;
+        test();//this是window
+
+        function fun(){
+            function fun1(){
+                console.log(this,"666666");//this是window
+            }
+            fun1();//this是window
+            console.log(this,"696969");//this是window
+        }
+        fun();
+        
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
