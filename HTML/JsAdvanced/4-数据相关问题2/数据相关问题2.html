@@ -72,7 +72,7 @@
         var b=a;
         a={name:"bob",age:13};
         // b.age=15;
-        console.log(+b.age,a.age,a.name,b.name);//12,13,bob,undefined
+        console.log(b.age,a.age,a.name,b.name);//12,13,bob,undefined
 
         function fn(obj){
             console.log(obj,"---");//{name: "bob", age: 13}
@@ -84,12 +84,25 @@
 
         function fn1(obj){
             console.log(obj,"11111");//{name: "bob", age: 13} "11111"
-           a={age:15};
-           console.log(obj,"hhhhhhh");//{name: "bob", age: 13} "hhhhhhh"
-           console.log(a);//{age: 15}
+            a={age:15};
+           console.log(obj,"jubu");//{name: "bob", age: 13} "hhhhhhh"
+           console.log(a,"@!@!@!");//{age: 15}
         }
         fn1(a);
-        console.log(a.age,"-------");//15
+        console.log(a.age,a.name,"-------");//15 undefined "-------"
+        console.log(a,"@@@@@@@9393");//{age: 15}age: 15__proto__: Object "@@@@@@@"
+
+        
+        function fn1(obj){
+            console.log(obj,"222222297");//{name: "bob", age: 13} "2222222"
+            console.log(a,"444444498");//undefined "444444498"
+           var a={age:15};
+           console.log(obj,"333333399");//{name: "bob", age: 13} "3333333"
+           console.log(a,"4444444100");//{age: 15}
+        }
+        fn1(a);
+        console.log(a.age,a.name,"5555555103");//13 "bob" "5555555"
+        console.log(a,"6666666104");//{name: "bob", age: 13} "6666666"
 
 
         //3、在JS调用函数时传递变量参数时，是值传递还是引用传递
