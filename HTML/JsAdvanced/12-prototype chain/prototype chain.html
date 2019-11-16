@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>prototype chain</title>
+    <script>
+    /**
+        1，原型链（图解）  别名：隐式原型链
+            * 访问一个对象的属性时，
+                - 先在自身属性中查找，找到返回
+                - 如果没有，再沿着__proto__这条链向上查找，找到返回
+                - 如果最终没有找到，返回undefined
+
+        作用：查找对象的属性（方法）
+
+        2，构造函数/原型/实体对象的关系（图解）
+        3，构造函数/原型/实体对象的关系2（图解）
+    
+    
+    
+    **/
+
+    console.log(Object);//ƒ Object() { [native code] }
+    console.log(Object.prototype);//Object
+    console.log(Object.prototype.__proto__);//null
+    function Fun(){
+        this.test1=function(){
+            console.log("test1()");//test1()
+        }
+    }
+    console.log(Fun.prototype);//Object
+    Fun.prototype.test2=function(){
+        console.log("test2()");//test2()
+    }
+    var fun=new Fun();
+    fun.test1();
+    fun.test2();
+    console.log(fun.toString());//[object Object]
+    console.log(fun.test3);//undefined
+    fun.test3();//报错 fun.test3 is not a function
+    test3();
+    
+    
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
