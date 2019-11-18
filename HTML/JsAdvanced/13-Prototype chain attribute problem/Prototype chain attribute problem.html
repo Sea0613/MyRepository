@@ -10,6 +10,13 @@
         1，读取对象的属性值时：会自动到原型链中查找。
         2，设置对象的属性值时：不会查找原型链，如果当前对象中没有此属性，直接添加此属性并设置其值。
         3，方法一般定义在原型中，属性一般通过构造函数定义在对象本身上
+
+        自我总结：
+            - 如果对象方法的回调函数中定义了形参，并且写了this.name=name;
+            调用方法的时候不传实参，其返回结果就会为undefined
+        
+            - 如果对象方法的回调函数中没有定义形参，
+            调用方法的时候就不用传实参，其返回结果就是调取方法的那个对象的属性
     
     **/
 
@@ -39,11 +46,56 @@
     var p2=new Person("fsn",18);
     console.log(p2);//Person {name: "fsn", age: 18}
 
-    var p3=new Person("zhma",21);
-    p3.sayName("fsnanha");
+    var p3=new Person("zhma",21,"p3p3p3");
+    p3.sayName(p1.name);
+    // p3.sayName("bob");
     console.log(p3);//Person {name: "fsnanha", age: 21}
     console.log(p1.__proto__===p3.__proto__);//true
 
+
+    
+    function Person1(name,age){
+        this.name=name;
+        this.age=age;
+    };
+
+    /*
+        - 如果对象方法的回调函数中定义了形参，并且写了this.name=name;
+        调用方法的时候不传实参，其返回结果就会为undefined
+        
+        - 如果对象方法的回调函数中没有定义形参，
+        调用方法的时候就不用传实参，其返回结果就是调取方法的那个对象的属性
+    */
+    Person1.prototype.sayName=function(name){
+        this.name=name;
+        alert(this.name);//undefined
+    };
+    var p11=new Person1("xx",2);
+    var p12=new Person1("hma",22);
+    p11.sayName();//undefined
+
+
+
+    function Person2(name,age){
+        this.name=name;
+        this.age=age;
+    };
+
+    /*
+        - 如果对象方法的回调函数中定义了形参，并且写了this.name=name;
+        调用方法的时候不传实参，其返回结果就会为undefined
+
+        - 如果对象方法的回调函数中没有定义形参，
+        调用方法的时候就不用传实参，其返回结果就是调取方法的那个对象的属性
+    */
+    Person2.prototype.sayName=function(name){
+        // this.name=name;
+        console.log(this.name);//aaaaa
+    };
+    var p13=new Person2("aaaaa",2);
+    var p15=new Person2("bbbbb",22);
+    p13.sayName();//aaaaa
+    console.log(p13);//Person2 {name: "aaaaa", age: 2}
 
 
     
